@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador NE555</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>PAGINA DE SIMULACION</h1>
+    <p>
+      Este emulador facilita la simulación del funcionamiento del temporizador NE555 en sus diferentes modos, tanto en <strong>Astable</strong> como en <strong>Monoastable</strong>.
+    </p>
+
+    <!-- Monoestable -->
+    <div class="modo">
+      <h2>Tipo Monoastable</h2>
+      <div class="modo-flex">
+        <div class="formulario">
+          <label>Valor Resistencia (R1): 
+            <input type="number" id="r1-mono" placeholder="Valor" step="any">
+          </label>
+          <select id="r1-mono-unit">
+            <option value="1e3">kΩ</option>
+            <option value="1e6">MΩ</option>
+          </select>
+          <br>
+          <label>Valor Capacitancia (C): 
+            <input type="number" id="c-mono" placeholder="Valor" step="any">
+          </label>
+          <select id="c-mono-unit">
+            <option value="1e-9">nF</option>
+            <option value="1e-6">μF</option>
+          </select>
+          <br>
+          <button onclick="calcularMono()">RESULTADO</button>
+          <p>Tiempo del Pulso (T): <span id="t-mono">0</span> segundos</p>
+        </div>
+
+        <div class="imagen-circuito">
+          <h3>Circuito Monoastable</h3>
+          <img src="New img Monoastable.png" alt="Circuito Monoastable NE555">
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Astable -->
+    <div class="modo">
+      <h2>Tipo Astable</h2>
+      <div class="modo-flex">
+        <div class="formulario">
+          <label>Valor Resistencia (R1): 
+            <input type="number" id="r1-astable" placeholder="Valor" step="any">
+          </label>
+          <br>
+          <label>Valor Resistencia (R2): 
+            <input type="number" id="r2-astable" placeholder="Valor" step="any">
+          </label>
+          <br>
+          <label>Valor Capacitancia (C): 
+            <input type="number" id="c-astable" placeholder="Valor" step="any">
+          </label>
+          <br>
+          <button onclick="calcularAstable()">RESULTADO</button>
+          <p>Frecuencia (F): <span id="f-astable">0</span> Hz</p>
+          <p>Ciclo de Trabajo (D): <span id="d-astable">0</span> %</p>
+        </div>
+
+        <div class="imagen-circuito">
+          <h3>Circuito Astable</h3>
+          <img src="New img Astable.png" alt="Circuito Astable NE555">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
